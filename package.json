@@ -11,6 +11,7 @@
   "devDependencies": {
     "@sveltejs/vite-plugin-svelte": "^5.0.3",
     "svelte": "^5.28.1",
+    "svelte-dnd-action": "^0.9.61",
     "vite": "^6.3.5"
   },
   "description": "This template should help get you started developing with Svelte in Vite.",
