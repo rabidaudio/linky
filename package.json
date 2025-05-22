@@ -1,0 +1,46 @@
+{
+  "name": "linky",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@sveltejs/vite-plugin-svelte": "^5.0.3",
+    "svelte": "^5.28.1",
+    "vite": "^6.3.5"
+  },
+  "description": "This template should help get you started developing with Svelte in Vite.",
+  "main": "svelte.config.js",
+  "dependencies": {
+    "acorn": "^8.14.1",
+    "aria-query": "^5.3.2",
+    "axobject-query": "^4.1.0",
+    "clsx": "^2.1.1",
+    "debug": "^4.4.1",
+    "deepmerge": "^4.3.1",
+    "esbuild": "^0.25.4",
+    "esm-env": "^1.2.2",
+    "esrap": "^1.4.6",
+    "fdir": "^6.4.4",
+    "is-reference": "^3.0.3",
+    "kleur": "^4.1.5",
+    "locate-character": "^3.0.0",
+    "magic-string": "^0.30.17",
+    "ms": "^2.1.3",
+    "nanoid": "^3.3.11",
+    "picocolors": "^1.1.1",
+    "picomatch": "^4.0.2",
+    "postcss": "^8.5.3",
+    "rollup": "^4.41.0",
+    "source-map-js": "^1.2.1",
+    "tinyglobby": "^0.2.13",
+    "vitefu": "^1.0.6",
+    "zimmerframe": "^1.1.2"
+  },
+  "author": "julien dorothy, julien@rabidaudio.com",
+  "license": "MIT"
+}
