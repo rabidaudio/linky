@@ -7,7 +7,7 @@
     {#each Object.entries(options) as [key, name] }
         <div class="control">
             <button
-                    class="button {key === value ? 'is-info' : ''}"
+                    class="button is-small {key === value ? 'is-info' : ''}"
                     on:click={(e) => value = key}>
                 {name}
             </button>
