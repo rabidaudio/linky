@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>{{meta.title}}</title>
+
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="{{meta.description}}" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="gravatar.com">
+  <link href="https://cdn.jsdelivr.net/npm/modern-normalize@v2.0.0/modern-normalize.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cutive+Mono&family=Montserrat:wght@400..500&display=swap"
+    rel="stylesheet">
+
+  <link rel="icon" href="favicon.png">
+
+  <meta property="og:title" content="{{meta.title}}" />
+  <meta property="og:description" content="{{meta.description}}" />
+  <!-- <meta property="og:image"
+    content="https://gravatar.com/avatar/ea37a9bda1040afc917f98ee745b64f2663d1443a6cb7248a0dff43d0ae779d5?s=400" />
+  <link rel="me" href="https://hachyderm.io/@okay_sure_cool" /> -->
+
+  <style>
+    /* BASE STYLES */
+    :root {
+      --body-background: {{css.body_background}};
+      --body-color: {{css.body_color}};
+      --accent-color: {{css.accent_color}};
+      --on-accent-color: {{css.on_accent_color}};
+      --color-copied: {{css.copied_color}};
+      --color-link: {{css.link_color}};
+      --font-family: Montserrat, -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      --font-family-mono: "Cutive Mono", monospace;
+    }
+
+    body {
+      background: var(--body-background);
+      color: var(--body-color);
+      margin: 0;
+      min-width: 320px;
+      font-family: var(--font-family);
+      font-weight: 400;
+    }
+
+    a {
+      color: var(--accent-color);
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-weight: 500;
+    }
+
+    pre,
+    code {
+      font-family: var(--font-family-mono);
+    }
+
+    /* PAGE CONTENT */
+
+    .avatar {
+      margin: auto;
+      max-width: 150px;
+    }
+
+    .avatar img {
+      width: 100%;
+      border-radius: 50%;
+    }
+
+    .content {
+      text-align: center;
+      max-width: 1200px;
+      min-width: 320px;
+      margin: auto;
+      padding: 0 3em;
+    }
+
+
+    @media screen and (max-width: 650px) {
+      .content {
+        padding: 0 15px;
+      }
+    }
+
+
+    footer {
+      text-align: center;
+      font-size: 0.8em;
+      padding: 2em 0 1em 0;
+    }
+
+    .heart {
+      font-size: inherit;
+      color: var(--accent-color);
+      vertical-align: sub;
+    }
+
+    /* LINKS */
+
+    .link-group {
+      text-align: center;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      max-width: 100%;
+    }
+
+    .link {
+      line-height: 2em;
+      margin: 20px;
+      border: 1px solid var(--accent-color);
+      border-radius: 5px;
+      padding: 15px;
+      transition: all 0.2s;
+
+      flex-basis: 500px;
+      flex-grow: 1;
+    }
+
+    .link.clickable:hover {
+      background-color: var(--accent-color);
+      color: var(--on-accent-color);
+    }
+
+    .title {
+      color: var(--accent-color);
+      font-size: 1em;
+    }
+
+    .link-group a {
+      text-decoration: none;
+    }
+
+    .link .url,
+    .link .copyable {
+      display: block;
+      color: var(--color-link);
+      font-size: 1.2em;
+    }
+
+    @media screen and (max-width: 650px) {
+      .link .url,
+      .link .copyable {
+        font-size: 0.8em;
+      }
+    }
+
+    .link.clickable:hover .title,
+    .link.clickable:hover .url,
+    .link.clickable:hover .copyable {
+      color: var(--on-accent-color);
+    }
+
+    .copyable {
+      margin: auto;
+    }
+
+    .copyable input,
+    .copy-btn {
+      font-size: 1em;
+    }
+
+    .copyable input {
+      display: inline;
+      background-color: inherit;
+      border: none;
+      font-family: var(--font-family-mono);
+      color: var(--color-link);
+    }
+
+    .copyable input:focus-visible {
+      outline: none;
+    }
+
+    .link .url,
+    .link .copyable input {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      /* make ellipsis start at front */
+      direction: rtl;
+      max-width: 70vw;
+      margin: auto;
+    }
+
+    .copyable,
+    .copyable input {
+      cursor: copy;
+    }
+
+    .copy-btn {
+      vertical-align: middle;
+      opacity: 0.8;
+      transition: opacity 0.2s;     
+      font-size: 0.7em; 
+    }
+
+    .copyable:hover .copy-btn {
+      opacity: 1;
+    }
+
+    .copied-alert {
+      position: absolute;
+      color: var(--color-copied);
+      opacity: 0;
+      margin: 0 0.4em;
+      font-size: 0.7em;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="content">
+    <!-- <h1>
+      <div class="avatar">
+        <img src="https://gravatar.com/avatar/ea37a9bda1040afc917f98ee745b64f2663d1443a6cb7248a0dff43d0ae779d5?s=400" />
+      </div>
+      Julien Dorothy ✨<br/>
+      <code>@okay_sure_cool</code>
+    </h1> -->
+    <h1>{{content.title}}</h1>
+    <h2>{{content.subtitle}}</h2>
+    <p>{{content.body}}</p>
+
+    <ul class="link-group">
+        {{#buttons}}
+
+            {{#isLink}}
+                <a class="link clickable" href="{{value}}" {{#openInNewTab}}target="_blank"{{/openInNewTab}}>
+                    <li>
+                        <div class="title">{{name}}</div>
+                        <div><code class="url">{{displayValue}}</code></div>
+                    </li>
+                </a>
+            {{/isLink}}
+            
+            {{^isLink}}
+            <li class="link">
+                <div class="title">{{name}}</div>
+                <div>
+                    <div class="copyable">
+                        <input type="text" size="{{valueLength}}" value="{{value}}" readonly />
+                        <span class="material-icons copy-btn">content_copy</span>
+                        <span class="copied-alert">Copied!</span>
+                    </div>
+                </div>
+            </li>
+            {{/isLink}}
+
+        {{/buttons}}
+
+    </ul>
+  </div>
+
+  <footer>
+    <a href="http://creativecommons.org/licenses/by-sa/4.0/?ref=chooser-v1">CC-BY-SA 4.0</a>.
+    Made with <span class="material-icons heart">favorite</span> in Atlanta.
+  </footer>
+
+  <script>
+    // Copyable
+    window.addEventListener('DOMContentLoaded', () => {
+      for (const container of document.querySelectorAll('.copyable')) {
+        container.addEventListener('click', () => {
+          const input = container.getElementsByTagName('input')[0]
+          input.select()
+          input.setSelectionRange(0, 99999) // For mobile devices
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(input.value)
+            const alert = container.getElementsByClassName('copied-alert')[0]
+            alert.animate([
+              { 'opacity': 1 },
+              { 'opacity': 0 },
+            ], { duration: 2000 });
+          }
+        })
+      }
+    })
+  </script>
+</body>
+</html>

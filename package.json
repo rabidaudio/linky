@@ -10,17 +10,9 @@
   },
   "devDependencies": {
     "@sveltejs/vite-plugin-svelte": "^5.0.3",
-    "svelte": "^5.28.1",
-    "svelte-dnd-action": "^0.9.61",
-    "vite": "^6.3.5"
-  },
-  "description": "This template should help get you started developing with Svelte in Vite.",
-  "main": "svelte.config.js",
-  "dependencies": {
     "acorn": "^8.14.1",
     "aria-query": "^5.3.2",
     "axobject-query": "^4.1.0",
-    "bulma": "^1.0.4",
     "clsx": "^2.1.1",
     "debug": "^4.4.1",
     "deepmerge": "^4.3.1",
@@ -37,12 +29,21 @@
     "picocolors": "^1.1.1",
     "picomatch": "^4.0.2",
     "postcss": "^8.5.3",
-    "remixicon": "^4.6.0",
     "rollup": "^4.41.0",
     "source-map-js": "^1.2.1",
     "tinyglobby": "^0.2.13",
+    "vite": "^6.3.5",
     "vitefu": "^1.0.6",
     "zimmerframe": "^1.1.2"
+  },
+  "description": "Open-source linktree clone",
+  "main": "svelte.config.js",
+  "dependencies": {
+    "bulma": "^1.0.4",
+    "mustache": "^4.2.0",
+    "remixicon": "^4.6.0",
+    "svelte": "^5.28.1",
+    "svelte-dnd-action": "^0.9.61"
   },
   "author": "julien dorothy, julien@rabidaudio.com",
   "license": "MIT"
