@@ -30,6 +30,7 @@
         display: flex;
         flex-direction: column;
         gap: 1em;
+        margin: 1em;
     }
 
     .add-new {

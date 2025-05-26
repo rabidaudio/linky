@@ -3,15 +3,12 @@
 
     import ButtonRadioPicker from "./ButtonRadioPicker.svelte"
 
-    // index = 0,
-    //     name = "",
-    //     value = "",
-    //     type = "url", // or "copyable"
-    //     openInNewTab = false,
-    //     onChange = (props) => {},
-
     let {
         index = 0,
+        //     name = "",
+        //     value = "",
+        //     type = "url", // or "copyable"
+        //     openInNewTab = false,
         button = $bindable(),
         onDelete = () => {}
     } = $props()
@@ -51,7 +48,7 @@
                 <div class="field-body">
                     <div class="field">
                         <div class="control">
-                            <input class="input" type="text" name="name" placeholder={button.type==='url' ? "Bandcamp" : 'Booking'} bind:value={button.name} />
+                            <input class="input is-small" type="text" name="name" placeholder={button.type==='url' ? "Bandcamp" : 'Booking'} bind:value={button.name} />
                         </div>
                     </div>
                 </div>
@@ -64,10 +61,10 @@
                 <div class="field-body">
                     <div class="field">
                         <div class="control">
-                            <input class="input" type="text" name="url" placeholder={ button.type === 'url' ? "https://myband.bandcamp.com" : 'band@myband.com'} bind:value={button.value} />
+                            <input class="input is-small" type="text" name="url" placeholder={ button.type === 'url' ? "https://myband.bandcamp.com" : 'band@myband.com'} bind:value={button.value} />
                             {#if button.type === 'url'}
                                 <br/>
-                                <label class="checkbox">
+                                <label class="checkbox is-size-7">
                                     <input type="checkbox" name="new-tab" bind:checked={button.openInNewTab} />
                                     Open in new tab
                                 </label>
