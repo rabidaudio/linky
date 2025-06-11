@@ -1,20 +1,49 @@
 <script>
   import SiteBuilder from './lib/SiteBuilder.svelte'
   import Preview from './lib/Preview.svelte'
-  import { assignIds } from './lib/globalid';
+  import { assignIds } from './lib/globalid'
 
   let siteConfig = $state({
+    html: {
+      head: `<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="gravatar.com">
+<link href="https://cdn.jsdelivr.net/npm/modern-normalize@v2.0.0/modern-normalize.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cutive+Mono&family=Montserrat:wght@400..500&display=swap" rel="stylesheet">
+
+<meta property="og:image"
+  content="https://gravatar.com/avatar/ea37a9bda1040afc917f98ee745b64f2663d1443a6cb7248a0dff43d0ae779d5?s=400" />
+<link rel="me" href="https://hachyderm.io/@okay_sure_cool" />`,
+    css: `body {
+  font-family:  Montserrat, -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-weight: 400;
+}
+pre, code {
+ font-family: "Cutive Mono", monospace;
+}
+.heart {
+  font-size: inherit;
+  color: var(--accent-color);
+  vertical-align: sub;
+}`,
+    footer: `
+<footer>
+    <a href="http://creativecommons.org/licenses/by-sa/4.0/?ref=chooser-v1">CC-BY-SA 4.0</a>.
+    Made with <span class="material-icons heart">favorite</span> in Atlanta.
+</footer>`,
+    },
     meta: {
       title: 'Hello World',
       description: 'my cool site',
     },
-    css: {
-      body_background: '#ffffff',
-      body_color: '#5a5a5a',
-      accent_color: '#5095d9',
-      on_accent_color: '#ffffff',
-      copied_color: '#5051D9',
-      link_color: '#D850D9',
+    colors: {
+      background: '#ffffff',
+      body: '#5a5a5a',
+      accent: '#5095d9',
+      onAccent: '#ffffff',
+      copied: '#5051D9',
+      link: '#D850D9',
     },
     content: {
       title: 'Hello World',
@@ -57,7 +86,7 @@
   }
 </style>
 
-<main>
+<main class="content">
   <div class="side-by-side">
     <div class="editor">
       <SiteBuilder bind:config={siteConfig} />

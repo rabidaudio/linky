@@ -43,6 +43,7 @@
     "mustache": "^4.2.0",
     "remixicon": "^4.6.0",
     "svelte": "^5.28.1",
+    "svelte-awesome-color-picker": "^4.0.2",
     "svelte-dnd-action": "^0.9.61"
   },
   "author": "julien dorothy, julien@rabidaudio.com",

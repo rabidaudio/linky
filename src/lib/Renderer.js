@@ -11,6 +11,7 @@ import template from '../assets/page-template.html.mustache?raw'
 
 // interface SiteConfig {
 //     buttons: Button[]
+//     meta: Metadata
 //     // backgroundColor:
 //     // primaryColor:
 //     // borderColor:
@@ -19,6 +20,20 @@ import template from '../assets/page-template.html.mustache?raw'
 //     // subtitle
 //     // avatar
 //     // banner img
+// }
+
+// interface Colors {
+//     background: string
+//     body: string
+//     accent: string
+//     onAccent: string
+//     copied?: string // defualt accent
+//     link?: string // defualt accent
+// }
+
+// interface Metadata {
+//     title?: string // defaults to site title
+//     description?: string //defaults to subtitle   
 // }
 
 const beautifyUrl = (url) => url.replace(/^https?\:\/\/(www.)?/, '')
@@ -32,6 +47,10 @@ const buttonToTemplateParams = ({ name, value, type, openInNewTab }) => ({
 })
 
 export function render (siteConfig) {
+    // html.head
+    // html.css
+    // html.footer
+
     // meta.title
     // meta.description
     
@@ -45,6 +64,8 @@ export function render (siteConfig) {
     // content.title
     // content.subtitle
     // content.body
+    // img.avatar // base64
+    // img.splash // base64
 
     // buttons: []
     //      name
@@ -54,9 +75,23 @@ export function render (siteConfig) {
     //      isLink
     //      openInNewTab
     
-    const { buttons, ...rest } = siteConfig
+    const { buttons, meta, colors, content, ...rest } = siteConfig
     return Mustache.render(template, {
         buttons: buttons.map(buttonToTemplateParams),
+        meta: {
+            title: content.title,
+            description: content.body || content.subtitle,
+            ...meta
+        },
+        css: {
+            body_background: colors.background || '#fff',
+            body_color: colors.body || '#000',
+            accent_color: colors.accent || 'blue',
+            on_accent_color: colors.onAccent || '#000',
+            copied_color: colors.copied || colors.accent || 'blue',
+            link_color: colors.link || colors.accent || 'blue',
+        },
+        content,
         ...rest
     })
 }
