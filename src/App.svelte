@@ -1,6 +1,8 @@
 <script>
   import SiteBuilder from './lib/SiteBuilder.svelte'
   import Preview from './lib/Preview.svelte'
+  import SideBySide from './lib/SideBySide.svelte'
+
   import { assignIds } from './lib/globalid'
 
   let siteConfig = $state({
@@ -75,25 +77,16 @@ pre, code {
     margin: auto;
   }
 
-  .side-by-side {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-  }
-
-  .editor, .preview {
-    flex-basis: 50%;
-  }
 </style>
 
-<main class="content">
-  <div class="side-by-side">
-    <div class="editor">
-      <SiteBuilder bind:config={siteConfig} />
-    </div>
-    <div class="preview">
-      <Preview config={siteConfig} />
-    </div>
-  </div>
-</main>
+{#snippet editor()}
+  <SiteBuilder bind:config={siteConfig} />  
+{/snippet}
 
+{#snippet preview()}
+  <Preview config={siteConfig} />  
+{/snippet}
+
+<main class="content">
+  <SideBySide {editor} {preview} />
+</main>
