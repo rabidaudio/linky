@@ -35,6 +35,9 @@ pre, code {
     Made with <span class="material-icons heart">favorite</span> in Atlanta.
 </footer>`,
     },
+    img: {
+      avatar: 'https://gravatar.com/avatar/ea37a9bda1040afc917f98ee745b64f2663d1443a6cb7248a0dff43d0ae779d5?s=400'
+    },
     meta: {
       title: 'Hello World',
       description: 'my cool site',

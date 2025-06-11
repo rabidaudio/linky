@@ -12,14 +12,6 @@ import template from '../assets/page-template.html.mustache?raw'
 // interface SiteConfig {
 //     buttons: Button[]
 //     meta: Metadata
-//     // backgroundColor:
-//     // primaryColor:
-//     // borderColor:
-//     // hoverColor:
-//     // title
-//     // subtitle
-//     // avatar
-//     // banner img
 // }
 
 // interface Colors {

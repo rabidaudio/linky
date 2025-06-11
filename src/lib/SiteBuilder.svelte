@@ -2,6 +2,7 @@
     import Colors from "./Colors.svelte"
     import Buttons from "./Buttons.svelte"
     import Advanced from "./Advanced.svelte";
+    import Image from "./Image.svelte";
 
     let { config = $bindable() } = $props()
 </script>
@@ -54,6 +55,9 @@
                 </div>
             </div>
         </div>
+
+        <h4>Avatar</h4>
+        <Image bind:img={config.img.avatar} />
     
         <Advanced bind:html={config.html} />
     </div>
